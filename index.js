@@ -7,7 +7,7 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'/views'));
 app.use(express.static(path.join(__dirname,'/public')));
 app.use(express.urlencoded({extended:true}));
-mongoose.connect('mongodb://127.0.0.1:27017/quote').
+mongoose.connect('mongodb+srv://dhruvsingh235443:PLMeq00MopzGr8aF@cluster0.pphocoi.mongodb.net/?retryWrites=true&w=majority').
 then(()=>{
     console.log('DB CONNECTED');})
 .catch((err)=>{
@@ -41,9 +41,7 @@ const quotes = [
         quote:'test quote'
     }
 ];
-
-let obj = Quote.find({name:'test'});
-if(!obj)Quote.insertMany(quotes);
+Quote.insertMany(quotes);
 
 app.get('/',async (req,res)=>{
     let quotesD = await Quote.find({});
@@ -73,6 +71,7 @@ app.get('/show/:id',async (req,res)=>{
 
 
 
+// <--"start":"node ./index.js"-->
 
 
 
