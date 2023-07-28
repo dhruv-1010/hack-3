@@ -14,7 +14,7 @@ body{
     background-color:black; 
     padding:10px 5px ;
     color: white;
-    font-size: 1vw;
+    font-size: 12px;
 }
 #nav h1:nth-child(1){
     place-self: center;
@@ -59,14 +59,21 @@ a{
     margin: 10px 15vw;
 }
 #quotesBox .btn{
-    background-color: rgb(11, 78, 11);
+    background-color: rgb(117, 117, 117);
     color: white;
     padding: 10px;
     border-radius: 30px;
-    font-size: 3vh;
+    font-size: 10px;
 
 }
-
+#quotesBox h1{
+    font-size:large;
+    color:plum;
+}
+#quotesBox p{
+    font-size: small;
+    color: tomato;
+}
 
 #quotesBox .box{
     background-color: #333;
@@ -74,7 +81,7 @@ a{
     padding: 10px;
     color:white;
     display: grid;
-    grid-template-columns: 8fr 2fr;
+    grid-template-columns: 8fr 2fr 2fr;
 }
 
 

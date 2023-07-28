@@ -1,13 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = 8000;
 const path = require('path');
+const methodover = require('method-override');
 const mongoose = require('mongoose');
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'/views'));
 app.use(express.static(path.join(__dirname,'/public')));
 app.use(express.urlencoded({extended:true}));
-mongoose.connect('mongodb+srv://dhruvsingh235443:PLMeq00MopzGr8aF@cluster0.pphocoi.mongodb.net/?retryWrites=true&w=majority').
+app.use(methodover('_method'))
+
+mongoose.connect(process.env.DB_PATH).
 then(()=>{
     console.log('DB CONNECTED');})
 .catch((err)=>{
@@ -26,22 +30,25 @@ const quoteSchema = new mongoose.Schema({
 })
 
 const Quote = mongoose.model('Quote',quoteSchema);
-const quotes = [
-    {
-        name:'Madara Uchiha',
-        quote:'Wake up to Reality'
-    },{
-        name:'Monkey D luffy',
-        quote:'I am gonna become the king of the pirates'
-    },{
-        name:'Barbie',
-        quote:'I am a barbie girl welcome to barbie world'
-    },{   
-        name:'test',
-        quote:'test quote'
-    }
-];
-Quote.insertMany(quotes);
+// const quotes = [
+//     {
+//         name:'Madara Uchiha',
+//         quote:'Wake up to Reality'
+//     },{
+//         name:'Monkey D luffy',
+//         quote:'I am gonna become the king of the pirates'
+//     },{
+//         name:'Barbie',
+//         quote:'I am a barbie girl welcome to barbie world'
+//     },{   
+//         name:'test',
+//         quote:'test quote'
+//     }
+// ];
+// Quote.insertMany(quotes);
+
+
+
 
 app.get('/',async (req,res)=>{
     let quotesD = await Quote.find({});
@@ -64,7 +71,11 @@ app.get('/show/:id',async (req,res)=>{
     res.render('show',{found})
 })
 
-
+app.delete('/show/:id',async (req,res)=>{
+    let { id }= req.params;
+    await Quote.findByIdAndDelete(id);
+    res.redirect('/');
+})
 
 
 
