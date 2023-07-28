@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname,'/public')));
 app.use(express.urlencoded({extended:true}));
 app.use(methodover('_method'))
 
-mongoose.connect(process.env.DB_PATH).
+mongoose.connect('mongodb+srv://dhruvsingh235443:PLMeq00MopzGr8aF@cluster0.pphocoi.mongodb.net/?retryWrites=true&w=majority').
 then(()=>{
     console.log('DB CONNECTED');})
 .catch((err)=>{
