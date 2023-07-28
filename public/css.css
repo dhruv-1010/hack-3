@@ -1,16 +1,17 @@
-/* *{
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 body{
+    background-color: #444;
     color: black;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 #nav{
     display: grid;
     grid-template-columns: 7fr 2fr 2fr 3fr;
-    background-color:black;
+    background-color:black; 
     padding:10px 5px ;
     color: white;
     font-size: 1vw;
@@ -25,35 +26,9 @@ body{
 a{
     text-decoration: none;
     color:inherit;
-} */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-#nav {
-    display: grid;
-    grid-template-columns: 7fr 2fr 2fr 3fr;
-    background-color: green;
-    padding: 10px 5px;
-}
-
-#nav h1 a:hover {
-    color: white;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 #lol{
-    background-color: green;
+    background-color:  #111;
     margin: 5vh auto;
     padding:50px;
     width:300px;
@@ -80,7 +55,7 @@ a {
 
 
 #quotesBox{
-    background-color: aquamarine;
+    background-color: #222;
     margin: 10px 15vw;
 }
 #quotesBox .btn{
@@ -94,9 +69,10 @@ a {
 
 
 #quotesBox .box{
+    background-color: #333;
     margin: 10px;
     padding: 10px;
-    color:red;
+    color:white;
     display: grid;
     grid-template-columns: 8fr 2fr;
 }

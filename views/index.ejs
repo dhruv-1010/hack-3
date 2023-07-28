@@ -7,7 +7,11 @@
                 <h1><%= item.quote %></h1>
                 <p><%= item.name %></p>
             </div>
-        <button class="btn"><a href="/show/<%=item._id%>">Show Quote</a></button>
+        <a href="/show/<%=item._id%>">
+        <button class="btn">
+                Show Quote
+            </button>
+        </a>
         </div>
    <% } %>
 </div>
